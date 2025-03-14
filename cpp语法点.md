@@ -1,5 +1,6 @@
 
-如果heap内部存的是ListNode*，需要重定义cmp obj
+
+**如果heap内部存的是ListNode\*，需要重定义cmp obj：**
 ```c++
 priority_queue<ListNode*, vector<ListNode*>, cmp>;
 ```
@@ -13,6 +14,12 @@ struct cmp {
 };
 ```
 
+**不需要重定义cmp obj的话，直接用greater<T>就好了：**
+```c++
+priority_queue<int, vector<int>, greater<int>> right;
+```
+
+**sort中的cmp是一个函数，不是obj：**
 ```cpp
 sort(vec.begin(), vec.end(), cmp);
 ```
@@ -22,9 +29,4 @@ sort(vec.begin(), vec.end(), cmp);
 bool cmp(ListNode* a, ListNode* b) {
     return a->val > b->val; // 这样是降序排列，因为更大的a在前
 }
-```
-
-不需要重定义cmp obj的话，直接用greater<T>就好了
-```c++
-priority_queue<int, vector<int>, greater<int>> right;
 ```
